@@ -3,8 +3,11 @@ package com.book.api.bootrestbook.Services;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.stereotype.Component;
+
 import com.book.api.bootrestbook.Entities.Book;
 
+@Component
 public class BookService {
   
   private static List<Book> list = new ArrayList<>();
@@ -17,17 +20,15 @@ public class BookService {
 
 
 //Get all books
-  public List<Book> geatAllBooks(){
+  public List<Book> getAllBooks(){
 
     return list;
   }
  
 // get single book by id
-public Book getBootById(int id){
-
-  list.stream().filter(e->{e.getId() == id }) findFirst().get();
-
-}
+  public Book getBookById(int id){
+    return list.stream().filter(e-> e.getId()==id).findFirst().get();
+  }
 
 
 }
