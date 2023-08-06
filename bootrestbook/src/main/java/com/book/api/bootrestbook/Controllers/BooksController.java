@@ -31,7 +31,7 @@ public class BooksController {
       if(list.size()<=0){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
       }
-      return ResponseEntity.of(Optional.of(list));
+      return ResponseEntity.status(HttpStatus.CREATED).body(list);
     }
 
   @GetMapping("/books/{id}")
@@ -83,8 +83,6 @@ public class BooksController {
       e.printStackTrace();
       return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
     }
-    
-    return book;
     
   }
 
